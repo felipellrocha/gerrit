@@ -15,12 +15,21 @@ module Gerrit
             .join
     end
 
+
+    def feature_branch(string)
+      string.match("^feature/")
+    end
+
     # Returns whether a string appears to be a commit SHA1 hash.
     #
     # @param string [String]
     # @return [Boolean]
     def commit_hash?(string)
       string =~ /^\h{7,40}$/
+    end
+
+    def feature_branch?(string)
+      string =~ /^feature\//
     end
 
     # Returns the given {Time} as a human-readable string based on that time

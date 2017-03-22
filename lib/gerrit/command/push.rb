@@ -13,6 +13,14 @@ module Gerrit::Command
         type = 'publish'
         topic = nil
         target_branch = 'master'
+        puts target_branch
+      elsif feature_branch?(arguments[1]) then
+        ref = arguments[1]
+        reviewer_args = arguments[2..-1] || []
+        type = 'publish'
+        topic = nil
+        target_branch = arguments[1]
+        puts target_branch
       else
         ref = 'HEAD'
         reviewer_args = arguments[1..-1] || []
